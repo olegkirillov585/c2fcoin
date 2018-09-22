@@ -87,8 +87,6 @@ If you require further assistance contact the support team @ [Discord](https://d
 
 ***Step 4***
 * Type "root" as the login/username then press enter
-
-![Example-Root](img/MN8.PNG)
 ***
 
 ***Step 5***
@@ -205,5 +203,5 @@ Click "File Save"
 
 *You should see ***status 4***
 
-If you do, congratulations! You have now setup a masternode. If you do not, please contact [support](https://discord.gg/BBBms9Z) and they will assist you.  
+If you do, congratulations! You have now setup a masternode. If you do not, please contact [support](https://discord.gg/S6Jt33j) and they will assist you.  
 ***
