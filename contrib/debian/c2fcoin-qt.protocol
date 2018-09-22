@@ -1,0 +1,11 @@
+[Protocol]
+exec=c2fcoin-qt '%u'
+protocol=c2fcoin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

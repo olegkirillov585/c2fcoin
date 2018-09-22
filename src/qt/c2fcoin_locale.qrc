@@ -1,0 +1,29 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/c2fcoin_bg.qm</file>
+        <file alias="ca">locale/c2fcoin_ca.qm</file>
+        <file alias="cs">locale/c2fcoin_cs.qm</file>
+        <file alias="da">locale/c2fcoin_da.qm</file>
+        <file alias="de">locale/c2fcoin_de.qm</file>
+        <file alias="en">locale/c2fcoin_en.qm</file>
+        <file alias="en_US">locale/c2fcoin_en_US.qm</file>
+        <file alias="es">locale/c2fcoin_es.qm</file>
+        <file alias="fi">locale/c2fcoin_fi.qm</file>
+        <file alias="fr_FR">locale/c2fcoin_fr_FR.qm</file>
+        <file alias="it">locale/c2fcoin_it.qm</file>
+        <file alias="ja">locale/c2fcoin_ja.qm</file>
+        <file alias="ko_KR">locale/c2fcoin_ko_KR.qm</file>
+        <file alias="nl">locale/c2fcoin_nl.qm</file>
+        <file alias="pl">locale/c2fcoin_pl.qm</file>
+        <file alias="pt">locale/c2fcoin_pt.qm</file>
+        <file alias="pt_BR">locale/c2fcoin_pt_BR.qm</file>
+        <file alias="ro_RO">locale/c2fcoin_ro_RO.qm</file>
+        <file alias="ru">locale/c2fcoin_ru.qm</file>
+        <file alias="sk">locale/c2fcoin_sk.qm</file>
+        <file alias="sv">locale/c2fcoin_sv.qm</file>
+        <file alias="tr">locale/c2fcoin_tr.qm</file>
+        <file alias="uk">locale/c2fcoin_uk.qm</file>
+        <file alias="zh_CN">locale/c2fcoin_zh_CN.qm</file>
+        <file alias="zh_TW">locale/c2fcoin_zh_TW.qm</file>
+    </qresource>
+</RCC>

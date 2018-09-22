@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=C2FCoin
+Comment=C2FCoin P2P Cryptocurrency
+Comment[fr]=C2FCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=C2FCoin, eşten eşe kriptografik sanal para birimi
+Exec=c2fcoin-qt %u
+Terminal=false
+Type=Application
+Icon=c2fcoin128
+MimeType=x-scheme-handler/c2fcoin;
+Categories=Office;Finance;

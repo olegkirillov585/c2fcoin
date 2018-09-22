@@ -1,0 +1,26 @@
+[Unit]
+Description=C2FCoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=c2fcoin
+Group=c2fcoin
+
+Type=forking
+PIDFile=/var/lib/c2fcoind/c2fcoind.pid
+
+ExecStart=/usr/bin/c2fcoind -daemon -pid=/var/lib/c2fcoind/c2fcoind.pid \
+          -conf=/etc/c2fcoin/c2fcoin.conf -datadir=/var/lib/c2fcoind
+
+ExecStop=-/usr/bin/c2fcoin-cli -conf=/etc/c2fcoin/c2fcoin.conf \
+         -datadir=/var/lib/c2fcoind stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,26 @@
+# /etc/conf.d/c2fcoind: config file for /etc/init.d/c2fcoind
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/c2fcoin/c2fcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/c2fcoind"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/c2fcoind.pid"
+
+# Where to write c2fcoind data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/c2fcoind"
+
+# User and group to own c2fcoind process
+#BITCOIND_USER="c2fcoin"
+#BITCOIND_GROUP="c2fcoin"
+
+# Path to c2fcoind executable
+#BITCOIND_BIN="/usr/bin/c2fcoind"
+
+# Nice value to run c2fcoind under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
