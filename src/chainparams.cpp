@@ -56,7 +56,15 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of(0, uint256("000007a57161d356ea40900e67fcdd22f3ea2209e25845b10fb8ff18fb9c6f0e"))
 			(100, uint256("00000099131a37e2465b66ae7372a6b487870f4354a8299177c3417c64f0cc42"))
 			(200, uint256("000001f90c2b0d89d4e243e8c0ef749ae8b9dc61d464c3b7647f6d55c0c67dab"))
-			(270, uint256("8f4efabf11b711160feb224bb07bf85d066a5ddd270d01d5eabdf165cdb1c17e")); 
+	        (270, uint256("8f4efabf11b711160feb224bb07bf85d066a5ddd270d01d5eabdf165cdb1c17e"))
+	        (500, uint256("2d00010df574ac95a532dcf9aae16d270e1c6c7e6b79bb7f657e777726e71595"))
+	        (1000, uint256("e709d95632f8090e5ad24a980764e320cf24885073c669dbe97a66944bdf5bbe"))
+	        (5000, uint256("b40912b73cae77af5cb1f020c3c8b13eb981f5f0a1f79ce5acab99d0e228ff3e"))
+	        (10000, uint256("3a90595014e997c5c6e2ffbe4283090fb9ee6cc4c9687c58c3ab1f75e4303fb3"))
+	        (25000, uint256("7f970b0e90d2833cf0204647d86d2e5e5c8195840964a4058fa3510bd937e1fe"))
+	        (50000, uint256("05eef6a92922257d42e19646f7d4d6c7aab9dc9e61b76d70b3c014e7bc6d9000"))
+	        (75000, uint256("d3d281551ba9627e6735b5b175f42a7a7de52378b9f629ed8125d56e17a63edd"))
+	        (92512, uint256("b98c634040e4c585cb07c86ed6baf21724234d9279cd46e99852df3790233af9")); 
 
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
@@ -191,9 +199,10 @@ public:
         assert(genesis.hashMerkleRoot == uint256("3b1b8b41cd234fad0644f11522d71b372cb7eee05557e4b520e690b56c9df3f8"));
 
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("185.87.193.122", "185.87.193.122"));
-		vSeeds.push_back(CDNSSeedData("185.87.193.127", "185.87.193.127"));
-		vSeeds.push_back(CDNSSeedData("95.183.12.251", "95.183.12.251"));
+        vSeeds.push_back(CDNSSeedData("94.180.247.7", "94.180.247.7"));
+		//vSeeds.push_back(CDNSSeedData("185.87.193.127", "185.87.193.127"));
+		//vSeeds.push_back(CDNSSeedData("185.87.193.141", "185.87.193.141"));
+		//vSeeds.push_back(CDNSSeedData("185.87.193.144", "185.87.193.144"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 28); // addresses start with C
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 30); // scripts start with D
@@ -205,6 +214,7 @@ public:
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
+		fRequireRPCPassword = true;
         fMiningRequiresPeers = true;
         fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
