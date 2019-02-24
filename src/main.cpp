@@ -4490,7 +4490,7 @@ bool AcceptBlockHeader(const CBlock& block, CValidationState& state, CBlockIndex
     }
 
     int nHeight = pindex->nHeight;
-    int splitHeight = -1;
+   
 
     // Write block to history file
     try {
@@ -6964,3 +6964,5 @@ public:
         mapOrphanTransactionsByPrev.clear();
     }
 } instance_of_cmaincleanup;
+
+}
