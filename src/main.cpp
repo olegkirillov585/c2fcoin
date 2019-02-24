@@ -4459,32 +4459,27 @@ bool AcceptBlockHeader(const CBlock& block, CValidationState& state, CBlockIndex
             return state.DoS(0, error("%s : prev block %s not found", __func__, block.hashPrevBlock.ToString().c_str()), 0, "bad-prevblk");
         pindexPrev = (*mi).second;
         if (pindexPrev->nStatus & BLOCK_FAILED_MASK) {
-            //If this "invalid" block is an exact match from the checkpoints, then reconsider it
-            if (Checkpoints::CheckBlock(pindexPrev->nHeight, block.hashPrevBlock, true)) {
-                LogPrintf("%s : Reconsidering block %s height %d\n", __func__, pindexPrev->GetBlockHash().GetHex(), pindexPrev->nHeight);
-                CValidationState statePrev;
-                ReconsiderBlock(statePrev, pindexPrev);
-                if (statePrev.IsValid()) {
-                    ActivateBestChain(statePrev);
+            return state.DoS(100, error("%s : prev block %s is invalid, unable to add block %s", __func__, block.hashPrevBlock.GetHex(), block.GetHash().GetHex()),
+                REJECT_INVALID, "bad-prevblk");
+        }
+
+        if (block.GetHash() != Params().HashGenesisBlock() && !CheckWork(block, pindexPrev))
+            return false;
+
+        if (!AcceptBlockHeader(block, state, &pindex))
+            return false;
+
+        if (pindex->nStatus & BLOCK_HAVE_DATA) {
+            // TODO: deal better with duplicate blocks.
+            // return state.DoS(20, error("AcceptBlock() : already have block %d %s", pindex->nHeight, pindex->GetBlockHash().ToString()), REJECT_DUPLICATE, "duplicate");
+            LogPrintf("ERROR in AcceptBlock() : already have block %d %s", pindex->nHeight, pindex->GetBlockHash().ToString());
+           
                     return true;
                 }
-            }
-            return state.DoS(100, error("%s : prev block %s is invalid, unable to add block %s", __func__, block.hashPrevBlock.GetHex(), block.GetHash().GetHex()),
-                             REJECT_INVALID, "bad-prevblk");
-        }
-    }
+              
+   
 
-    if (block.GetHash() != Params().HashGenesisBlock() && !CheckWork(block, pindexPrev))
-        return false;
-
-    if (!AcceptBlockHeader(block, state, &pindex))
-        return false;
-
-    if (pindex->nStatus & BLOCK_HAVE_DATA) {
-        // TODO: deal better with duplicate blocks.
-        // return state.DoS(20, error("AcceptBlock() : already have block %d %s", pindex->nHeight, pindex->GetBlockHash().ToString()), REJECT_DUPLICATE, "duplicate");
-        return true;
-    }
+    
 
     if ((!fAlreadyCheckedBlock && !CheckBlock(block, state)) || !ContextualCheckBlock(block, state, pindex->pprev)) {
         if (state.IsInvalid() && !state.CorruptionPossible()) {
@@ -4495,6 +4490,7 @@ bool AcceptBlockHeader(const CBlock& block, CValidationState& state, CBlockIndex
     }
 
     int nHeight = pindex->nHeight;
+    int splitHeight = -1;
 
     // Write block to history file
     try {
